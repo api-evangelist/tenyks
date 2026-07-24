@@ -1,0 +1,329 @@
+openapi: 3.0.0
+info:
+  title: Tenyks Auth Data Upload API
+  version: 1.0.1
+  description: The Tenyks API is the programmatic backbone of the Tenyks visual-intelligence / MLOps platform for computer-vision teams. It lets you authenticate with an API key + secret to obtain a short-lived Bearer access token, then create datasets and models, upload annotations and predictions from cloud storage (AWS S3, GCS, Azure), and trigger ingestion. Currently an alpha API available to Premium (Dashboard) users; a Sandbox host is available for the freemium tier.
+  x-alpha: true
+  contact:
+    name: Tenyks
+    url: https://www.tenyks.ai/
+servers:
+- url: https://{base_url}.tenyks.ai
+  description: The Tenyks API
+  variables:
+    base_url:
+      enum:
+      - dashboard
+      - sandbox
+      default: dashboard
+tags:
+- name: Data Upload
+  description: Upload and ingest annotations, models and predictions from cloud storage.
+paths:
+  /api/workspaces/tenyks/datasets:
+    post:
+      tags:
+      - Data Upload
+      operationId: createDataset
+      summary: Create a Dataset
+      description: This endpoint creates a dataset.
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatasetPayload'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json: {}
+  /api/workspaces/tenyks/datasets/{dataset_key}/images/annotations:
+    put:
+      tags:
+      - Data Upload
+      operationId: uploadDatasetAnnotations
+      summary: Upload Dataset Annotations
+      description: This endpoint uploads the annotations of a dataset.
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: dataset_key
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The unique key assigned to your dataset when it was created.
+        example: face_detection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatasetAnnotationsPayload'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/workspaces/tenyks/datasets/{dataset_key}/ingest:
+    put:
+      tags:
+      - Data Upload
+      operationId: ingestDatasetAnnotations
+      summary: Ingest Dataset Annotations
+      description: This endpoint starts the process of data ingestion for annotations.
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: dataset_key
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The unique key assigned to your dataset when it was created.
+        example: face_detection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatasetIngestPayload'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/workspaces/tenyks/datasets/{dataset_key}/model_inferences:
+    post:
+      tags:
+      - Data Upload
+      operationId: createModel
+      summary: Create a Model
+      description: This endpoint creates a model for a given dataset.
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: dataset_key
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The unique key assigned to your dataset when it was created.
+        example: face_detection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelPayload'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/workspaces/tenyks/datasets/{dataset_key}/model_inferences/{model_key}/predictions:
+    put:
+      tags:
+      - Data Upload
+      operationId: uploadModelPredictions
+      summary: Upload Model Predictions
+      description: This endpoint uploads the predictions of a model.
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: dataset_key
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The unique key assigned to your dataset when it was created.
+        example: face_detection
+      - name: model_key
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The unique key assigned to your model when it was created.
+        example: yolo_v8
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelPredictionsPayload'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json: {}
+  /api/workspaces/tenyks/datasets/{dataset_key}/model_inferences/{model_key}/ingest:
+    put:
+      tags:
+      - Data Upload
+      operationId: ingestModelPredictions
+      summary: Ingest Model Predictions
+      description: This endpoint starts the process of data ingestion for predictions.
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: dataset_key
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The unique key assigned to your dataset when it was created.
+        example: face_detection
+      - name: model_key
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The unique key assigned to your model when it was created.
+        example: yolo_v8
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatasetIngestPayload'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  schemas:
+    DatasetAnnotationsPayload:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - aws_s3
+          default: aws_s3
+        s3_uri:
+          type: string
+          example: s3://tenyks-datasets-bucket/kitti/annotations.json
+        credentials:
+          $ref: '#/components/schemas/AwsCredentials'
+      required:
+      - type
+      - s3_uri
+      - credentials
+    ModelPayload:
+      type: object
+      properties:
+        display_name:
+          type: string
+          description: Name of your model to be displayed on the Tenyks dashboard.
+          example: yolo_v8
+        key:
+          type: string
+          description: Model key
+          example: yolo_v8
+        iou_threshold:
+          type: string
+          description: Intersection over Union threshold
+          default: '0.5'
+        confidence_threshold:
+          type: string
+          description: Confidence threshold
+          default: '0.5'
+      required:
+      - display_name
+      - key
+      - iou_threshold
+      - confidence_threshold
+    AwsS3ImagesLocation:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - aws_s3
+          default: aws_s3
+        s3_uri:
+          type: string
+          example: s3://tenyks-datasets-bucket/kitti/images/
+        credentials:
+          $ref: '#/components/schemas/AwsCredentials'
+      required:
+      - type
+      - s3_uri
+      - credentials
+    DatasetPayload:
+      type: object
+      properties:
+        key:
+          type: string
+          description: Unique key assigned to your dataset
+          example: face_detection
+        display_name:
+          type: string
+          description: Label assigned to your dataset_key
+          example: face_detection
+        task_type:
+          type: string
+          enum:
+          - object_detection
+          default: object_detection
+        images_location:
+          $ref: '#/components/schemas/AwsS3ImagesLocation'
+      required:
+      - key
+      - display_name
+      - task_type
+      - images_location
+    DatasetIngestPayload:
+      type: object
+      properties: {}
+    AwsCredentials:
+      type: object
+      properties:
+        aws_access_key_id:
+          type: string
+        aws_secret_access_key:
+          type: string
+        region_name:
+          type: string
+          example: eu-central-1
+      required:
+      - aws_access_key_id
+      - aws_secret_access_key
+      - region_name
+    ModelPredictionsPayload:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - aws_s3
+          default: aws_s3
+        s3_uri:
+          type: string
+          example: s3://tenyks-datasets-bucket/kitti/predictions.json
+        credentials:
+          $ref: '#/components/schemas/AwsCredentials'
+      required:
+      - type
+      - s3_uri
+      - credentials
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer access token obtained from POST /api/auth/apikey (expires in 3600 seconds).
+x-apievangelist:
+  generated: '2026-07-21'
+  method: searched
+  source: https://docs.tenyks.ai/reference/ — assembled verbatim from the per-endpoint OpenAPI 3.0 definitions that Tenyks publishes on each ReadMe API-reference page (Auth, Datasets, Data Upload). operationIds added by API Evangelist for cross-referencing; paths, servers, schemas, security and request bodies are as published by the provider.
+  note: Tenyks documents one OpenAPI fragment per reference page rather than a single combined document; this file merges the eight documented operations into one spec. The literal workspace segment 'tenyks' is the example workspace name used throughout the provider's reference.
