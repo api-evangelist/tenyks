@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.tenyks.ai/reference/introduction.md, https://sandbox.tenyks.ai
+description: >-
+  Tenyks exposes a test-vs-live separation at the host level rather than through
+  test key prefixes. The same API runs against two hosts, selected by the
+  OpenAPI server `base_url` variable. No magic/test credential values or test
+  cards are published (Tenyks is not a payments API), so none are invented here.
+modes:
+  - name: sandbox
+    host: https://sandbox.tenyks.ai
+    base_url_variable: sandbox
+    tier: freemium
+    description: >-
+      Free Sandbox environment — create an account at https://sandbox.tenyks.ai
+      to explore the platform at no cost. CLI access for Sandbox accounts is on
+      the roadmap (currently CLI is paid-plan only).
+    signup: https://sandbox.tenyks.ai
+  - name: dashboard
+    host: https://dashboard.tenyks.ai
+    base_url_variable: dashboard
+    tier: premium
+    default: true
+    description: >-
+      Full-feature Premium environment; API access is currently available to
+      Premium (Dashboard) users. Contact sales to enable.
+test_credentials:
+  published: false
+  note: >-
+    You supply your own cloud-storage (S3/GCS/Azure) credentials per request;
+    Tenyks does not publish shared/magic test credentials.

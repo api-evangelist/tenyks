@@ -1,0 +1,30 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Tenyks API
+  version: 1.0.0
+extends: openapi/tenyks-openapi.json
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: tenyks
+      x-apievangelist-artifacts:
+        authentication: authentication/tenyks-authentication.yml
+        conventions: conventions/tenyks-conventions.yml
+        errors: errors/tenyks-problem-types.yml
+        data-model: data-model/tenyks-data-model.yml
+        lifecycle: lifecycle/tenyks-lifecycle.yml
+        sandbox: sandbox/tenyks-sandbox.yml
+      x-apievangelist-lifecycle: alpha
+  - target: $.info
+    update:
+      x-agentic-access: agentic-access/tenyks-agentic-access.yml
+  - target: "$.paths['/api/workspaces/tenyks/datasets/{dataset_key}/ingest'].put"
+    update:
+      x-async: true
+      x-apievangelist-note: >-
+        Two-phase upload pattern — call after uploadDatasetAnnotations. Ingestion
+        runs as an asynchronous background job.
+  - target: "$.paths['/api/workspaces/tenyks/datasets/{dataset_key}/model_inferences/{model_key}/ingest'].put"
+    update:
+      x-async: true
+      x-apievangelist-note: Asynchronous ingestion of model predictions; call after uploadModelPredictions.

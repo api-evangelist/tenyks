@@ -1,22 +1,159 @@
 aid: tenyks
 name: Tenyks
-description: Tenyks is a company surfaced as a portfolio company of speedinvest and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Tenyks is a University of Cambridge spin-out (Y Combinator; backed by
+  Speedinvest) building a visual-intelligence platform for computer vision. Its
+  original product is an MLOps monitoring and validation platform that helps ML
+  engineers working with computer-vision data find and fix what is wrong with
+  their models — data-quality analysis, model performance comparison,
+  text-to-image / image-to-image / object-level similarity search, embeddings,
+  tagging and custom metadata across image and video datasets. Tenyks has since
+  extended into a Vision AI / Video AI Agents platform that turns everyday
+  camera feeds into privacy-first operational analytics for brick-and-mortar
+  businesses. The Tenyks API (currently alpha, for Premium/Dashboard users, with
+  a freemium Sandbox) lets teams authenticate with an API key + secret to obtain
+  a Bearer token, then create datasets and models, and upload and ingest
+  annotations and predictions directly from AWS S3, GCS or Azure. A Python SDK
+  and CLI wrap the same surface.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.prod.website-files.com/63a0220866f41638081f4fce/63d07b4812f0f901e939d964_tenyks_logo-color.png
 url: https://raw.githubusercontent.com/api-evangelist/tenyks/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - speedinvest
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: portfolio-lead-enriched
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Computer Vision
+- Machine Learning
+- MLOps
+- Data Quality
+- Model Validation
+- Visual Intelligence
+- Video Analytics
+- Artificial Intelligence
+- Developer Tools
+apis:
+- aid: tenyks:tenyks-auth-api
+  name: Tenyks Auth API
+  description: Obtain a Bearer access token from an API key and secret.
+  humanURL: https://docs.tenyks.ai/reference/introduction
+  baseURL: https://dashboard.tenyks.ai
+  tags:
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/tenyks-auth-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tenyks.ai/reference/introduction
+  - type: Authentication
+    url: authentication/tenyks-authentication.yml
+- aid: tenyks:tenyks-data-upload-api
+  name: Tenyks Data Upload API
+  description: Upload and ingest annotations, models and predictions from cloud storage.
+  humanURL: https://docs.tenyks.ai/reference/introduction
+  baseURL: https://dashboard.tenyks.ai
+  tags:
+  - Data Upload
+  properties:
+  - type: OpenAPI
+    url: openapi/tenyks-data-upload-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tenyks.ai/reference/introduction
+  - type: Authentication
+    url: authentication/tenyks-authentication.yml
+- aid: tenyks:tenyks-datasets-api
+  name: Tenyks Datasets API
+  description: Create and retrieve datasets.
+  humanURL: https://docs.tenyks.ai/reference/introduction
+  baseURL: https://dashboard.tenyks.ai
+  tags:
+  - Datasets
+  properties:
+  - type: OpenAPI
+    url: openapi/tenyks-datasets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tenyks.ai/reference/introduction
+  - type: Authentication
+    url: authentication/tenyks-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/tenyks-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/tenyks-agentic-access.yml
+- type: DeveloperPortal
+  url: https://docs.tenyks.ai/
+- type: Documentation
+  url: https://docs.tenyks.ai/
+- type: APIReference
+  url: https://docs.tenyks.ai/reference/introduction
+- type: GettingStarted
+  url: https://docs.tenyks.ai/docs/the-foundations
+- type: Blog
+  url: https://www.tenyks.ai/blog
+- type: Pricing
+  url: https://www.tenyks.ai/pricing
+- type: SignUp
+  url: https://sandbox.tenyks.ai
+- type: LinkedIn
+  url: https://uk.linkedin.com/company/tenyks
+- type: Authentication
+  url: authentication/tenyks-authentication.yml
+- type: LLMsTxt
+  url: llms/tenyks-llms.txt
+- type: WellKnown
+  url: well-known/tenyks-well-known.yml
+- type: MCPServer
+  url: mcp/tenyks-mcp.yml
+- type: Packages
+  url: packages/tenyks-packages.yml
+- type: SDKs
+  url: packages/tenyks-packages.yml
+- type: CLI
+  url: cli/tenyks-cli.yml
+- type: Sandbox
+  url: sandbox/tenyks-sandbox.yml
+- type: Conventions
+  url: conventions/tenyks-conventions.yml
+- type: ErrorCatalog
+  url: errors/tenyks-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/tenyks-lifecycle.yml
+- type: DataModel
+  url: data-model/tenyks-data-model.yml
+- type: Conformance
+  url: conformance/tenyks-conformance.yml
+- type: Compliance
+  url: https://trust.tenyks.ai
+- type: TrustCenter
+  url: security/tenyks-trust-center.yml
+- type: Overlay
+  url: overlays/tenyks-openapi-overlay.yaml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 20
+  pass: local-v1

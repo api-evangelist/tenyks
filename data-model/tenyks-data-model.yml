@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: derived
+source: >-
+  Derived from openapi/tenyks-openapi.json path structure and payload schemas,
+  and the object reference at https://docs.tenyks.ai/docs/ (Workspace, Dataset,
+  Image, Model, Annotations and Predictions, Categories/Classes). Captures the
+  core entity-relationship graph of the Tenyks computer-vision data platform.
+docs: https://docs.tenyks.ai/docs/
+notation: >-
+  relationships use has_one / has_many / belongs_to with the reference field
+  name; direction is from the entity that owns the reference.
+entities:
+  - {name: Workspace, key_field: workspace_name, domain: core, description: A collection of users, datasets, and models they have access to.}
+  - {name: Dataset, key_field: key, domain: data, description: A named collection of images with a task_type (e.g. object_detection), created from a cloud-storage images_location.}
+  - {name: Image, domain: data, description: An image belonging to a dataset; can carry image-level tags and custom metadata/embeddings.}
+  - {name: Annotation, domain: data, description: Ground-truth labels (e.g. bounding boxes) uploaded for a dataset's images.}
+  - {name: Category, domain: data, description: A class/category name available to a dataset's annotations and predictions.}
+  - {name: Model, key_field: key, domain: modeling, description: A model (inference set) attached to a dataset, with iou_threshold and confidence_threshold.}
+  - {name: Prediction, domain: modeling, description: A model's inferences (e.g. predicted bounding boxes) uploaded and ingested for evaluation against annotations.}
+relationships:
+  - {from: Workspace, to: Dataset, kind: has_many, via: workspace}
+  - {from: Workspace, to: Model, kind: has_many, via: workspace}
+  - {from: Dataset, to: Image, kind: has_many, via: dataset_key}
+  - {from: Dataset, to: Annotation, kind: has_many, via: dataset_key}
+  - {from: Dataset, to: Category, kind: has_many, via: dataset_key}
+  - {from: Dataset, to: Model, kind: has_many, via: dataset_key}
+  - {from: Model, to: Prediction, kind: has_many, via: model_key}
+  - {from: Model, to: Dataset, kind: belongs_to, via: dataset_key}
+  - {from: Annotation, to: Category, kind: belongs_to, via: category}
+  - {from: Prediction, to: Category, kind: belongs_to, via: category}

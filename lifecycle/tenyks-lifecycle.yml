@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.tenyks.ai/reference/introduction.md
+description: >-
+  Versioning and lifecycle posture for the Tenyks API. The API is explicitly
+  labelled alpha and may change. No dated deprecation policy, Sunset/Deprecation
+  header support (RFC 8594), SLA page, or public status page (status.tenyks.ai
+  does not resolve) was found at the generated date; these are recorded as
+  not-published rather than invented.
+versioning:
+  scheme: single-version
+  current: "1.0.1"
+  status: alpha
+  statement: >-
+    "This API is currently in its alpha version and may undergo changes in the
+    future." (docs.tenyks.ai/reference/introduction)
+  docs: https://docs.tenyks.ai/reference/introduction
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No formal deprecation policy or Sunset/Deprecation header support published.
+sla:
+  url: null
+status_page: null
+roadmap:
+  note: >-
+    The docs reference roadmap items (e.g. bringing the CLI to Sandbox accounts,
+    launching the API for the Freemium tier) but no dedicated public roadmap page
+    was found.
+deprecated_operations: []

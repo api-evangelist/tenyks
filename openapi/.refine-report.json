@@ -1,0 +1,18 @@
+{
+  "provider": "tenyks",
+  "sources": [
+    "tenyks-auth-api-openapi.yml",
+    "tenyks-data-upload-api-openapi.yml",
+    "tenyks-datasets-api-openapi.yml"
+  ],
+  "outputs": [
+    "tenyks-auth-api-openapi.yml",
+    "tenyks-data-upload-api-openapi.yml",
+    "tenyks-datasets-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

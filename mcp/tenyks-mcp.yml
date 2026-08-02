@@ -1,0 +1,37 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: >-
+  Derived from openapi/tenyks-openapi.json operations. No official hosted/remote
+  Tenyks MCP server was found (searched docs.tenyks.ai, npm @modelcontextprotocol,
+  and MCP registries — none published as of the generated date). This is a
+  CANDIDATE tool list one could expose over MCP, one tool per documented
+  operation; it is not an endorsed or running server.
+server:
+  name: tenyks
+  transport: http
+tools:
+  - name: generate_access_token
+    description: Exchange an API key and secret for a Bearer access token.
+    source_operation: openapi/tenyks-openapi.json#generateAccessToken
+  - name: retrieve_datasets
+    description: Retrieve information for all datasets in the workspace.
+    source_operation: openapi/tenyks-openapi.json#retrieveDatasets
+  - name: create_dataset
+    description: Create a dataset from a cloud-storage image location.
+    source_operation: openapi/tenyks-openapi.json#createDataset
+  - name: upload_dataset_annotations
+    description: Upload the annotations of a dataset from cloud storage.
+    source_operation: openapi/tenyks-openapi.json#uploadDatasetAnnotations
+  - name: ingest_dataset_annotations
+    description: Start asynchronous ingestion of a dataset's images and annotations.
+    source_operation: openapi/tenyks-openapi.json#ingestDatasetAnnotations
+  - name: create_model
+    description: Create a model (inference set) for a given dataset.
+    source_operation: openapi/tenyks-openapi.json#createModel
+  - name: upload_model_predictions
+    description: Upload a model's predictions from cloud storage.
+    source_operation: openapi/tenyks-openapi.json#uploadModelPredictions
+  - name: ingest_model_predictions
+    description: Start asynchronous ingestion of a model's predictions.
+    source_operation: openapi/tenyks-openapi.json#ingestModelPredictions

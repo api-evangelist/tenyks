@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: generated
+source: >-
+  Generated from openapi/tenyks-openapi.json operations plus
+  conventions/tenyks-conventions.yml and authentication/tenyks-authentication.yml.
+  No provider-published Agent Skills / AGENTS.md were found. Every step is
+  grounded in a real operationId present in the spec.
+skills:
+  - file: tenyks-upload-dataset.md
+    name: Create a dataset and upload its annotations
+    api: openapi/tenyks-openapi.json
+    operations: [generateAccessToken, createDataset, uploadDatasetAnnotations, ingestDatasetAnnotations]
+  - file: tenyks-evaluate-model.md
+    name: Register a model and upload its predictions for evaluation
+    api: openapi/tenyks-openapi.json
+    operations: [generateAccessToken, createModel, uploadModelPredictions, ingestModelPredictions]

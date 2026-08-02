@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: derived
+source: >-
+  Derived from the documented responses in openapi/tenyks-openapi.json. Tenyks
+  documents application/json responses (200 success, 400 Bad request) but does
+  NOT declare an RFC 9457 application/problem+json media type or a structured
+  error-code registry in its published reference, so this catalog is minimal and
+  reflects only what the provider documents.
+format: json
+problems:
+  - status: 400
+    title: Bad request
+    description: The request body or parameters were invalid (e.g. missing required fields, or invalid API key/secret on the auth endpoint).
+    media_type: application/json
+    source_operations:
+      - openapi/tenyks-openapi.json#generateAccessToken
+      - openapi/tenyks-openapi.json#createDataset
+      - openapi/tenyks-openapi.json#uploadModelPredictions
+notes:
+  - No application/problem+json (RFC 9457) envelope is declared.
+  - Authentication failures surface on POST /api/auth/apikey as 400 responses.
+  - A richer error reference was not published at the generated date.

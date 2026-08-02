@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://docs.tenyks.ai/docs/installation.md and https://docs.tenyks.ai/docs/sdk-reference.md,
+  verified against the public PyPI registry (pypi.org/pypi/<name>/json). No npm,
+  Maven, NuGet, Go, RubyGems, Packagist or crates.io first-party libraries were
+  found; Tenyks ships Python only.
+packages:
+  - language: python
+    registry: pypi
+    name: tenyks-cli
+    url: https://pypi.org/project/tenyks-cli/
+    install: pip install tenyks-cli
+    version: 0.2.51
+    requires_python: ">=3.7"
+    official: true
+    description: >-
+      The Tenyks CLI Python package — create and manage datasets & models,
+      convert annotations/predictions, and upload embeddings from the terminal.
+      Author "Tenyks AI"; homepage https://www.tenyks.ai/. Command surface
+      catalogued in cli/tenyks-cli.yml.
+  - language: python
+    registry: pypi
+    name: tenyks-sdk
+    url: https://pypi.org/project/tenyks-sdk/
+    install: pip install tenyks-sdk
+    version: 2.0.4
+    requires_python: ">=3.10"
+    official: true
+    description: >-
+      The Tenyks SDK client (Image SDK / Video SDK) documented at
+      https://docs.tenyks.ai/docs/sdk-reference.md — authenticate with an API key
+      and manage workspaces, datasets, models, search and embeddings.

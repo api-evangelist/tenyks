@@ -1,0 +1,51 @@
+generated: '2026-07-21'
+method: searched
+description: >-
+  Probe of the /.well-known/ discovery surface for every Tenyks host in apis.yml
+  and the OpenAPI servers[] (dashboard.tenyks.ai, sandbox.tenyks.ai,
+  docs.tenyks.ai, www.tenyks.ai). Status is the HTTP code observed at fetch time.
+  dashboard.tenyks.ai answers 200 with a text/html SPA shell for every
+  /.well-known/ path (no real document is served), so those are recorded as
+  present-but-not-a-real-document and not saved. No real well-known documents
+  were found to save verbatim.
+hosts:
+  - host: https://dashboard.tenyks.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        type: text/html
+        note: SPA shell, not a real security.txt; not saved.
+      - path: /.well-known/openid-configuration
+        status: 200
+        type: text/html
+        note: SPA shell, not a real OIDC discovery document; not saved.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        type: text/html
+        note: SPA shell, not a real document; not saved.
+      - path: /.well-known/api-catalog
+        status: 200
+        type: text/html
+        note: SPA shell, not a real API catalog; not saved.
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        type: text/html
+        note: SPA shell, not a real ai-plugin manifest; not saved.
+  - host: https://www.tenyks.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://docs.tenyks.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404

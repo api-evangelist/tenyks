@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.tenyks.ai/docs/installation.md, https://docs.tenyks.ai/docs/commands.md
+description: >-
+  The Tenyks CLI command surface — a Python package (pip install tenyks-cli)
+  that sits over the Tenyks API for creating and managing datasets & models,
+  converting annotations/predictions, and uploading images and embeddings.
+  Captured verbatim from the CLI usage output published in the docs. The CLI
+  package itself is catalogued in packages/tenyks-packages.yml. The CLI requires
+  Python >= 3.7 and (currently) a paid plan; Sandbox support is on the roadmap.
+docs: https://docs.tenyks.ai/docs/installation.md
+install:
+  pip: pip install tenyks-cli
+binary: tenyks
+commands:
+  auth_config:
+    - {name: configure, description: Configure the Tenyks CLI with your credentials.}
+    - {name: configure-aws, description: Configure AWS credentials for connecting S3 data sources.}
+  datasets:
+    - {name: dataset-create, description: Create a new dataset.}
+    - {name: dataset-images-upload, description: Upload images to a dataset.}
+    - {name: dataset-annotations-upload, description: Upload annotations to a dataset.}
+    - {name: dataset-class-names-upload, description: Upload category/class names for a dataset.}
+  models_predictions:
+    - {name: model-create, description: Create a model for a dataset.}
+    - {name: model-predictions-upload, description: Upload model predictions.}
+  conversion:
+    - {name: convert-annotations, description: Convert annotations into a Tenyks-supported format.}
+    - {name: convert-predictions, description: Convert predictions into a Tenyks-supported format.}
+  embeddings:
+    - {name: image-embedding-upload, description: Upload custom image-level embeddings.}
+    - {name: annotation-bbox-embedding-upload, description: Upload custom bounding-box embeddings for annotations.}
+    - {name: prediction-bbox-embedding-upload, description: Upload custom bounding-box embeddings for predictions.}

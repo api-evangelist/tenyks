@@ -1,0 +1,81 @@
+# Tenyks Documentation
+
+> Tenyks is a University of Cambridge spin-out inventing the way humanity interacts with AI to protect and delight. To protect the world from the misuse of AI, but also to ensure that AI is developed with passion, excitement, and joy! We are building an MLOps monitoring and validation platform that helps AI developers working with computer vision data to build more reliable software faster. Specifically, our platform helps ML developers understand what's wrong with their software and fix it.
+
+## Guides
+- [Set up your first dataset](https://docs.tenyks.ai/docs/dataset-upload.md): Learn how to upload your first dataset in the Tenyks platform!
+- [Set up your first model](https://docs.tenyks.ai/docs/model-upload.md): Upload your first model in the Tenyks platform!
+- [COCO format](https://docs.tenyks.ai/docs/coco-format.md): Familiarize yourself with the supported formats in the Tenyks platform
+- [Installation](https://docs.tenyks.ai/docs/installation.md): Learn how to install the Tenyks CLI
+- [Authentication](https://docs.tenyks.ai/docs/authentication.md): Authenticate with your Tenyks credentials
+- [Commands](https://docs.tenyks.ai/docs/commands.md): Get to know the different commands available in the Tenyks CLI
+- [The Tenyks CLI](https://docs.tenyks.ai/docs/walkthrough-upload-a-dataset.md): A walkthrough of how to get started with the Tenyks CLI
+- [SDK Reference](https://docs.tenyks.ai/docs/sdk-reference.md)
+- [Tenyks](https://docs.tenyks.ai/docs/tenyks.md): You can use the Tenyks SDK client to authenticate and manage your workspaces and datasets.
+- [Workspace](https://docs.tenyks.ai/docs/workspace.md): A Workspace represents a collection of users, datasets, and models they have access to.
+- [Dataset](https://docs.tenyks.ai/docs/dataset.md)
+- [Image](https://docs.tenyks.ai/docs/image.md)
+- [Image and Object Tags](https://docs.tenyks.ai/docs/image-and-object-tags.md)
+- [Annotations and Predictions](https://docs.tenyks.ai/docs/annotations-and-predictions.md)
+- [Model](https://docs.tenyks.ai/docs/model.md)
+- [Categories/Classes](https://docs.tenyks.ai/docs/categoriesclasses.md)
+- [Cloud Providers](https://docs.tenyks.ai/docs/cloud-providers.md)
+- [Quickstart Tutorial](https://docs.tenyks.ai/docs/quickstart-tutorial.md): Here you will find examples on how to interact and do basic Tenyks workflows through SDK.
+- [Using Search with SDK](https://docs.tenyks.ai/docs/using-search-with-sdk.md)
+- [Examples](https://docs.tenyks.ai/docs/examples.md): Learn how to take advantage of the Tenyks SDK with these examples.
+- [Adding Custom Metadata](https://docs.tenyks.ai/docs/adding-custom-metadata.md): We show you how to add custom metadata both at the object-level and at the image-level
+- [Video SDK](https://docs.tenyks.ai/docs/video-sdk.md)
+- [1. 🚀 The foundations](https://docs.tenyks.ai/docs/the-foundations.md): Installation, authentication, workspace management and more.
+- [2. 📹 Configuring your video source](https://docs.tenyks.ai/docs/configuring-your-video-source.md)
+- [3. ⬆️ Uploading and processing your first video](https://docs.tenyks.ai/docs/3-️-uploading-and-processing-your-first-video.md)
+- [4. 🔍 Implementing video search functionality](https://docs.tenyks.ai/docs/4-implementing-video-search-functionality.md)
+- [5. 🖼️ Rendering images and video clips](https://docs.tenyks.ai/docs/5-️-rendering-images-and-video-clips.md)
+- [6. 🧮 Leveraging video analytics (e.g., plots, etc)](https://docs.tenyks.ai/docs/6-leveraging-video-analytics-eg-plots-etc.md)
+- [Image SDK](https://docs.tenyks.ai/docs/image-sdk.md)
+- [1. 🚀 The foundations](https://docs.tenyks.ai/docs/1-the-foundations-installation-authentication-workspace-management.md)
+- [2. 📂 Configuring your data source](https://docs.tenyks.ai/docs/2-configuring-your-data-source.md)
+- [3. ⬆️ Uploading and processing your first dataset](https://docs.tenyks.ai/docs/3-️-uploading-and-processing-your-first-dataset.md)
+- [4. 🔍 Text-to-image search](https://docs.tenyks.ai/docs/4-text-to-image-search.md)
+- [5. 🖼️ Image-to-image search](https://docs.tenyks.ai/docs/5-️-image-to-image-search.md)
+- [6. 🎯 Object-level search](https://docs.tenyks.ai/docs/6-object-level-search.md)
+- [7. 🖥️ Rendering images](https://docs.tenyks.ai/docs/7-️-rendering-images.md)
+- [8. 🏷️ Tagging](https://docs.tenyks.ai/docs/8-️-tagging.md)
+- [9. 📊 Custom metadata (image-level)](https://docs.tenyks.ai/docs/9-custom-metadata-image-level.md)
+- [10. 🧠 Custom embeddings](https://docs.tenyks.ai/docs/10-custom-embeddings.md)
+- [11. 🎨 Bonus (editing annotations)](https://docs.tenyks.ai/docs/11-bonus-editing-annotations.md)
+- [AWS S3](https://docs.tenyks.ai/docs/aws-s3.md): We describe the process to set up AWS S3 to connect your data to the Tenyks platform.
+- [Azure](https://docs.tenyks.ai/docs/azure-folder-structure.md): We summarize the setup process on Azure to connect your data to the Tenyks platform.
+- [Google Cloud Storage](https://docs.tenyks.ai/docs/google-cloud-storage.md): We outline the process to set up GCS to connect your data to the Tenyks platform.
+- [Tagging](https://docs.tenyks.ai/docs/tagging.md)
+- [Similarity Search](https://docs.tenyks.ai/docs/similarity-search.md)
+- [Embedding Viewer](https://docs.tenyks.ai/docs/embedding-viewer.md)
+
+## API Reference
+- [Introduction](https://docs.tenyks.ai/reference/introduction.md): Introduction to the Tenyks API
+- [Setting up an account](https://docs.tenyks.ai/reference/setting-up-an-account.md): How to set up a Tenyks account
+- [Retrieving API keys](https://docs.tenyks.ai/reference/retrieving-api-keys.md): Where to find your API Keys.
+- [Access Token](https://docs.tenyks.ai/reference/access-token.md): How to obtain an access token.
+- [AWS S3 workflow](https://docs.tenyks.ai/reference/aws-s3-workflow.md): Learn how to start using the Tenyks API with AWS S3
+- [GCS workflow](https://docs.tenyks.ai/reference/gcs-workflow.md): Learn how to start using the Tenyks API with Google Cloud Storage (GCS).
+- [Azure workflow](https://docs.tenyks.ai/reference/azure-workflow.md): We show you how to use the Tenyks API with Azure.
+- [Appending Data](https://docs.tenyks.ai/reference/appending-data.md): How to append images, annotations and predictions to an existing dataset.
+- [Generate Access Token](https://docs.tenyks.ai/reference/post_api-auth-apikey-1.md): This endpoint generates an acccess token to be used as a Bearer token on all the other endpoints.
+- [Retrieve datasets](https://docs.tenyks.ai/reference/get_api-workspaces-tenyks-datasets-1.md): This endpoint retrieves the information of all your datasets.
+- [Create a Dataset](https://docs.tenyks.ai/reference/post_api-workspaces-tenyks-datasets-1.md): This endpoint creates a dataset.
+- [Upload Dataset Annotations](https://docs.tenyks.ai/reference/put_api-workspaces-tenyks-datasets-dataset-key-images-annotations-1.md): This endpoint uploads the annotations of a dataset.
+- [Ingest Dataset Annotations](https://docs.tenyks.ai/reference/put_api-workspaces-tenyks-datasets-dataset-key-ingest.md): This endpoint starts the process of data ingestion for annotations.
+- [Create a Model](https://docs.tenyks.ai/reference/post_api-workspaces-tenyks-datasets-dataset-key-model-inferences-1.md): This endpoint creates a model for a given dataset.
+- [Upload Model Predictions](https://docs.tenyks.ai/reference/put_api-workspaces-tenyks-datasets-dataset-key-model-inferences-model-key-predictions-1.md): This endpoint uploads the predictions of a model.
+- [Ingest Model Predictions](https://docs.tenyks.ai/reference/put_api-workspaces-tenyks-datasets-dataset-key-model-inferences-model-key-ingest.md): This endpoint starts the process of data ingestion for predictions.
+- [Create a Dataset](https://docs.tenyks.ai/reference/post_api-workspaces-tenyks-datasets-3.md): This endpoint creates a dataset.
+- [Upload Dataset Annotations](https://docs.tenyks.ai/reference/put_api-workspaces-tenyks-datasets-dataset-key-images-annotations-3.md): This endpoint uploads the annotations of a dataset.
+- [Ingest Images and Annotations](https://docs.tenyks.ai/reference/put_api-workspaces-tenyks-datasets-dataset-key-ingest-2.md): This endpoint starts the process of data ingestion for the dataset.
+- [Create a Model](https://docs.tenyks.ai/reference/post_api-workspaces-tenyks-datasets-dataset-key-model-inferences-2.md): This endpoint creates a model for a given dataset.
+- [Upload Model Predictions](https://docs.tenyks.ai/reference/put_api-workspaces-tenyks-datasets-dataset-key-model-inferences-model-key-predictions-3.md): This endpoint uploads the predictions of a model.
+- [Ingest Model Predictions](https://docs.tenyks.ai/reference/put_api-workspaces-tenyks-datasets-dataset-key-model-inferences-model-key-ingest-2.md): This endpoint starts the process of data ingestion for predictions.
+- [Create a Dataset](https://docs.tenyks.ai/reference/post_api-workspaces-tenyks-datasets-4.md): This endpoint creates a dataset.
+- [Upload Dataset Annotations](https://docs.tenyks.ai/reference/put_api-workspaces-tenyks-datasets-dataset-key-images-annotations-4.md): This endpoint uploads the annotations of a dataset.
+- [Ingest Images and Annotations](https://docs.tenyks.ai/reference/put_api-workspaces-tenyks-datasets-dataset-key-ingest-3.md): This endpoint starts the process of data ingestion for the dataset.
+- [Create a Model](https://docs.tenyks.ai/reference/post_api-workspaces-tenyks-datasets-dataset-key-model-inferences-3.md): This endpoint creates a model for a given dataset.
+- [Upload Model Predictions](https://docs.tenyks.ai/reference/put_api-workspaces-tenyks-datasets-dataset-key-model-inferences-model-key-predictions-4.md): This endpoint uploads the predictions of a model.
+- [Ingest Model Predictions](https://docs.tenyks.ai/reference/put_api-workspaces-tenyks-datasets-dataset-key-model-inferences-model-key-ingest-3.md): This endpoint starts the process of data ingestion for predictions.

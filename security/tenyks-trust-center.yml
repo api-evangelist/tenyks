@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: searched
+source: https://trust.tenyks.ai
+description: >-
+  Tenyks operates a public Trust Center at https://trust.tenyks.ai, hosted on
+  Vanta (page title "Tenyks Trust Center"). It presents the company's security
+  and compliance posture for its Agentic Platform for Visual Data Management.
+url: https://trust.tenyks.ai
+certifications:
+  - SOC 2 Type II
+  - GDPR
+  - CCPA
+evidence:
+  - source: https://trust.tenyks.ai
+    kind: vanta-trust-center
+    detail: >-
+      Vanta-hosted trust report (data-signature-manifest from assets.vanta.com;
+      og:title "Tenyks Trust Center"). SOC 2 Type II certification and GDPR/CCPA
+      compliance are stated by Tenyks publicly.

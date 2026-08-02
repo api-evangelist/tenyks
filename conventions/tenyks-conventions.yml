@@ -1,0 +1,71 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://docs.tenyks.ai/reference/ and https://docs.tenyks.ai/docs/ — the
+  cross-cutting request/response semantics of the Tenyks API, plus what
+  openapi/tenyks-openapi.json implies.
+description: >-
+  How the Tenyks API behaves across operations: authentication style, resource
+  identity, the cloud-storage credential model, the two-phase upload→ingest
+  pattern, versioning, and the error envelope. Tenyks is an alpha API with a
+  small, upload-oriented surface, so several conventions common to mature REST
+  APIs (documented idempotency-key header, cursor pagination, rate-limit
+  headers) are NOT published and are recorded here as not-documented rather than
+  invented.
+base_url: https://dashboard.tenyks.ai   # or https://sandbox.tenyks.ai for the freemium tier
+api_style: REST over HTTPS, JSON request/response bodies.
+authentication:
+  scheme: Bearer access token, exchanged from an API key + secret.
+  detail: authentication/tenyks-authentication.yml
+  token_ttl_seconds: 3600
+resource_identity:
+  mechanism: >-
+    Datasets and models are addressed by a client-supplied unique `key`
+    (e.g. dataset_key "face_detection", model_key "yolo_v8"), not a
+    server-generated opaque id. Re-using a key targets the same resource.
+  note: >-
+    This key-based identity gives creates a natural upsert/dedupe seam, but
+    Tenyks does not document a dedicated Idempotency-Key request header, so no
+    formal idempotency contract is asserted.
+data_ingestion_pattern:
+  supported: true
+  description: >-
+    Uploads are two-phase: first upload (annotations, predictions, images) from
+    a cloud-storage location, then call the corresponding `/ingest` endpoint to
+    start asynchronous processing. Ingestion is a background job.
+  operations:
+    - openapi/tenyks-openapi.json#uploadDatasetAnnotations
+    - openapi/tenyks-openapi.json#ingestDatasetAnnotations
+    - openapi/tenyks-openapi.json#uploadModelPredictions
+    - openapi/tenyks-openapi.json#ingestModelPredictions
+cloud_storage_credentials:
+  supported: true
+  providers: [aws_s3, gcs, azure]
+  description: >-
+    Data is referenced by a storage URI (e.g. s3_uri) plus per-request
+    credentials (AwsCredentials: access key id, secret access key, region), so
+    Tenyks pulls data directly from your bucket. GCS and Azure follow the same
+    shape (see the GCS/Azure workflow reference pages).
+pagination:
+  style: not-documented
+  note: The published Retrieve datasets endpoint returns all datasets without documented pagination parameters.
+versioning:
+  scheme: single-version
+  current: "1.0.1"
+  status: alpha
+  note: >-
+    "This API is currently in its alpha version and may undergo changes."
+    (docs.tenyks.ai/reference/introduction). No dated versioning/deprecation
+    policy is published — see lifecycle/tenyks-lifecycle.yml.
+error_envelope:
+  shape: >-
+    Endpoints document a 200 successful response and a 400 "Bad request" for
+    invalid input; the API returns application/json. No RFC 9457
+    problem+json media type is declared. See errors/tenyks-problem-types.yml.
+rate_limit_signaling:
+  style: not-documented
+cross_links:
+  authentication: authentication/tenyks-authentication.yml
+  errors: errors/tenyks-problem-types.yml
+  lifecycle: lifecycle/tenyks-lifecycle.yml
+  data_model: data-model/tenyks-data-model.yml
