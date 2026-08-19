@@ -1,0 +1,1071 @@
+{
+  "item": [
+    {
+      "id": "870f3465-30ff-4407-9fcc-40a583c3525b",
+      "name": "Data Upload",
+      "description": {
+        "content": "Upload and ingest annotations, models and predictions from cloud storage.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0825eabd-fe5d-4373-aae3-60fb570b7f08",
+          "name": "Create a Dataset",
+          "request": {
+            "name": "Create a Dataset",
+            "description": {
+              "content": "This endpoint creates a dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workspaces",
+                "tenyks",
+                "datasets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": " (This can only be one of dashboard,sandbox)",
+                  "type": "any",
+                  "value": "{{base_url}}",
+                  "key": "base_url"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"task_type\": \"object_detection\",\n  \"images_location\": {\n    \"type\": \"aws_s3\",\n    \"s3_uri\": \"<string>\",\n    \"credentials\": {\n      \"aws_access_key_id\": \"<string>\",\n      \"aws_secret_access_key\": \"<string>\",\n      \"region_name\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "06cbf5d0-68cf-411d-8f69-58abf383fcf5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workspaces",
+                    "tenyks",
+                    "datasets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of dashboard,sandbox)",
+                      "type": "any",
+                      "value": "{{base_url}}",
+                      "key": "base_url"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"face_detection\",\n  \"display_name\": \"face_detection\",\n  \"task_type\": \"object_detection\",\n  \"images_location\": {\n    \"type\": \"aws_s3\",\n    \"s3_uri\": \"s3://tenyks-datasets-bucket/kitti/images/\",\n    \"credentials\": {\n      \"aws_access_key_id\": \"<string>\",\n      \"aws_secret_access_key\": \"<string>\",\n      \"region_name\": \"eu-central-1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17730605-f6ea-4181-9078-66df24fa5938",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workspaces",
+                    "tenyks",
+                    "datasets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of dashboard,sandbox)",
+                      "type": "any",
+                      "value": "{{base_url}}",
+                      "key": "base_url"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"face_detection\",\n  \"display_name\": \"face_detection\",\n  \"task_type\": \"object_detection\",\n  \"images_location\": {\n    \"type\": \"aws_s3\",\n    \"s3_uri\": \"s3://tenyks-datasets-bucket/kitti/images/\",\n    \"credentials\": {\n      \"aws_access_key_id\": \"<string>\",\n      \"aws_secret_access_key\": \"<string>\",\n      \"region_name\": \"eu-central-1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a722d7c3-5487-4498-8095-7c85fb496861",
+          "name": "Upload Dataset Annotations",
+          "request": {
+            "name": "Upload Dataset Annotations",
+            "description": {
+              "content": "This endpoint uploads the annotations of a dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workspaces",
+                "tenyks",
+                "datasets",
+                ":dataset_key",
+                "images",
+                "annotations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataset_key",
+                  "description": "(Required) The unique key assigned to your dataset when it was created."
+                },
+                {
+                  "description": " (This can only be one of dashboard,sandbox)",
+                  "type": "any",
+                  "value": "{{base_url}}",
+                  "key": "base_url"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"aws_s3\",\n  \"s3_uri\": \"<string>\",\n  \"credentials\": {\n    \"aws_access_key_id\": \"<string>\",\n    \"aws_secret_access_key\": \"<string>\",\n    \"region_name\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "336a64b6-fb3d-4d61-a156-9fe1c48404bd",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workspaces",
+                    "tenyks",
+                    "datasets",
+                    ":dataset_key",
+                    "images",
+                    "annotations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataset_key",
+                      "description": "(Required) The unique key assigned to your dataset when it was created."
+                    },
+                    {
+                      "description": " (This can only be one of dashboard,sandbox)",
+                      "type": "any",
+                      "value": "{{base_url}}",
+                      "key": "base_url"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"aws_s3\",\n  \"s3_uri\": \"s3://tenyks-datasets-bucket/kitti/annotations.json\",\n  \"credentials\": {\n    \"aws_access_key_id\": \"<string>\",\n    \"aws_secret_access_key\": \"<string>\",\n    \"region_name\": \"eu-central-1\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cb31a8e-89c9-4cab-9660-a888dc8fe0a9",
+          "name": "Ingest Dataset Annotations",
+          "request": {
+            "name": "Ingest Dataset Annotations",
+            "description": {
+              "content": "This endpoint starts the process of data ingestion for annotations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workspaces",
+                "tenyks",
+                "datasets",
+                ":dataset_key",
+                "ingest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataset_key",
+                  "description": "(Required) The unique key assigned to your dataset when it was created."
+                },
+                {
+                  "description": " (This can only be one of dashboard,sandbox)",
+                  "type": "any",
+                  "value": "{{base_url}}",
+                  "key": "base_url"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "19783920-0565-4d02-843a-0516c6890fc8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workspaces",
+                    "tenyks",
+                    "datasets",
+                    ":dataset_key",
+                    "ingest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataset_key",
+                      "description": "(Required) The unique key assigned to your dataset when it was created."
+                    },
+                    {
+                      "description": " (This can only be one of dashboard,sandbox)",
+                      "type": "any",
+                      "value": "{{base_url}}",
+                      "key": "base_url"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f3cb1a7-0915-457d-aa5f-7bbed8c5fceb",
+          "name": "Create a Model",
+          "request": {
+            "name": "Create a Model",
+            "description": {
+              "content": "This endpoint creates a model for a given dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workspaces",
+                "tenyks",
+                "datasets",
+                ":dataset_key",
+                "model_inferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataset_key",
+                  "description": "(Required) The unique key assigned to your dataset when it was created."
+                },
+                {
+                  "description": " (This can only be one of dashboard,sandbox)",
+                  "type": "any",
+                  "value": "{{base_url}}",
+                  "key": "base_url"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"display_name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"iou_threshold\": \"0.5\",\n  \"confidence_threshold\": \"0.5\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d2579ea6-5aa8-49ee-a994-1d1caf0f920f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workspaces",
+                    "tenyks",
+                    "datasets",
+                    ":dataset_key",
+                    "model_inferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataset_key",
+                      "description": "(Required) The unique key assigned to your dataset when it was created."
+                    },
+                    {
+                      "description": " (This can only be one of dashboard,sandbox)",
+                      "type": "any",
+                      "value": "{{base_url}}",
+                      "key": "base_url"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"display_name\": \"yolo_v8\",\n  \"key\": \"yolo_v8\",\n  \"iou_threshold\": \"0.5\",\n  \"confidence_threshold\": \"0.5\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80d3001b-2d3a-488c-88ab-a92eefe01231",
+          "name": "Upload Model Predictions",
+          "request": {
+            "name": "Upload Model Predictions",
+            "description": {
+              "content": "This endpoint uploads the predictions of a model.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workspaces",
+                "tenyks",
+                "datasets",
+                ":dataset_key",
+                "model_inferences",
+                ":model_key",
+                "predictions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataset_key",
+                  "description": "(Required) The unique key assigned to your dataset when it was created."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "model_key",
+                  "description": "(Required) The unique key assigned to your model when it was created."
+                },
+                {
+                  "description": " (This can only be one of dashboard,sandbox)",
+                  "type": "any",
+                  "value": "{{base_url}}",
+                  "key": "base_url"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"aws_s3\",\n  \"s3_uri\": \"<string>\",\n  \"credentials\": {\n    \"aws_access_key_id\": \"<string>\",\n    \"aws_secret_access_key\": \"<string>\",\n    \"region_name\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e0da391d-af0d-4e1c-81e7-c117dcbf8a26",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workspaces",
+                    "tenyks",
+                    "datasets",
+                    ":dataset_key",
+                    "model_inferences",
+                    ":model_key",
+                    "predictions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataset_key",
+                      "description": "(Required) The unique key assigned to your dataset when it was created."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "model_key",
+                      "description": "(Required) The unique key assigned to your model when it was created."
+                    },
+                    {
+                      "description": " (This can only be one of dashboard,sandbox)",
+                      "type": "any",
+                      "value": "{{base_url}}",
+                      "key": "base_url"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"aws_s3\",\n  \"s3_uri\": \"s3://tenyks-datasets-bucket/kitti/predictions.json\",\n  \"credentials\": {\n    \"aws_access_key_id\": \"<string>\",\n    \"aws_secret_access_key\": \"<string>\",\n    \"region_name\": \"eu-central-1\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ba76ed1-4756-4ee2-adb0-62ca41ba847c",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workspaces",
+                    "tenyks",
+                    "datasets",
+                    ":dataset_key",
+                    "model_inferences",
+                    ":model_key",
+                    "predictions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataset_key",
+                      "description": "(Required) The unique key assigned to your dataset when it was created."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "model_key",
+                      "description": "(Required) The unique key assigned to your model when it was created."
+                    },
+                    {
+                      "description": " (This can only be one of dashboard,sandbox)",
+                      "type": "any",
+                      "value": "{{base_url}}",
+                      "key": "base_url"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"aws_s3\",\n  \"s3_uri\": \"s3://tenyks-datasets-bucket/kitti/predictions.json\",\n  \"credentials\": {\n    \"aws_access_key_id\": \"<string>\",\n    \"aws_secret_access_key\": \"<string>\",\n    \"region_name\": \"eu-central-1\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c525d873-13ed-485d-937e-8adba4e412b6",
+          "name": "Ingest Model Predictions",
+          "request": {
+            "name": "Ingest Model Predictions",
+            "description": {
+              "content": "This endpoint starts the process of data ingestion for predictions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workspaces",
+                "tenyks",
+                "datasets",
+                ":dataset_key",
+                "model_inferences",
+                ":model_key",
+                "ingest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataset_key",
+                  "description": "(Required) The unique key assigned to your dataset when it was created."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "model_key",
+                  "description": "(Required) The unique key assigned to your model when it was created."
+                },
+                {
+                  "description": " (This can only be one of dashboard,sandbox)",
+                  "type": "any",
+                  "value": "{{base_url}}",
+                  "key": "base_url"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7bc15cf5-ba41-464c-8eb5-f9077d8ef31e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workspaces",
+                    "tenyks",
+                    "datasets",
+                    ":dataset_key",
+                    "model_inferences",
+                    ":model_key",
+                    "ingest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataset_key",
+                      "description": "(Required) The unique key assigned to your dataset when it was created."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "model_key",
+                      "description": "(Required) The unique key assigned to your model when it was created."
+                    },
+                    {
+                      "description": " (This can only be one of dashboard,sandbox)",
+                      "type": "any",
+                      "value": "{{base_url}}",
+                      "key": "base_url"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": " (This can only be one of dashboard,sandbox)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "dashboard",
+      "key": "base_url"
+    },
+    {
+      "type": "string",
+      "value": "https://{{base_url}}.tenyks.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f704499d-9361-46be-bd73-ec0ded3e00b1",
+    "name": "Tenyks Auth Data Upload API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Tenyks API is the programmatic backbone of the Tenyks visual-intelligence / MLOps platform for computer-vision teams. It lets you authenticate with an API key + secret to obtain a short-lived Bearer access token, then create datasets and models, upload annotations and predictions from cloud storage (AWS S3, GCS, Azure), and trigger ingestion. Currently an alpha API available to Premium (Dashboard) users; a Sandbox host is available for the freemium tier.\n\nContact Support:\n Name: Tenyks",
+      "type": "text/plain"
+    }
+  }
+}

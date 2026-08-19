@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tenyks Auth API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{base_url}.tenyks.ai/api/auth/apikey",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint generates an access token to be used as a Bearer token on all the other endpoints. The token_type is Bearer and expires_in is 3600 seconds."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

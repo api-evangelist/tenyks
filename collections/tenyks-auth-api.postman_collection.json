@@ -1,0 +1,202 @@
+{
+  "item": [
+    {
+      "id": "d4e515f1-8397-4341-8182-c2ecfed38120",
+      "name": "Auth",
+      "description": {
+        "content": "Obtain a Bearer access token from an API key and secret.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "50be603d-7d1b-443a-9d55-a5de678d13f5",
+          "name": "Generate Access Token",
+          "request": {
+            "name": "Generate Access Token",
+            "description": {
+              "content": "This endpoint generates an access token to be used as a Bearer token on all the other endpoints. The token_type is Bearer and expires_in is 3600 seconds.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "apikey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": " (This can only be one of dashboard,sandbox)",
+                  "type": "any",
+                  "value": "{{base_url}}",
+                  "key": "base_url"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"api_key\": \"<string>\",\n  \"api_secret\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4f7740dc-1f76-42cf-a792-6b345ac1e671",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "apikey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of dashboard,sandbox)",
+                      "type": "any",
+                      "value": "{{base_url}}",
+                      "key": "base_url"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"api_key\": \"<string>\",\n  \"api_secret\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"id_token\": \"string\",\n  \"expires_in\": 3600,\n  \"token_type\": \"Bearer\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0959233b-50ce-4871-92d8-51ba87f8bada",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "apikey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of dashboard,sandbox)",
+                      "type": "any",
+                      "value": "{{base_url}}",
+                      "key": "base_url"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"api_key\": \"<string>\",\n  \"api_secret\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": " (This can only be one of dashboard,sandbox)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "dashboard",
+      "key": "base_url"
+    },
+    {
+      "type": "string",
+      "value": "https://{{base_url}}.tenyks.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a33cb9e3-a687-4bf8-84cf-14a5ec4ea90d",
+    "name": "Tenyks Auth API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Tenyks API is the programmatic backbone of the Tenyks visual-intelligence / MLOps platform for computer-vision teams. It lets you authenticate with an API key + secret to obtain a short-lived Bearer access token, then create datasets and models, upload annotations and predictions from cloud storage (AWS S3, GCS, Azure), and trigger ingestion. Currently an alpha API available to Premium (Dashboard) users; a Sandbox host is available for the freemium tier.\n\nContact Support:\n Name: Tenyks",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tenyks Auth Datasets API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Datasets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve datasets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{base_url}.tenyks.ai/api/workspaces/tenyks/datasets",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint retrieves the information of all your datasets."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

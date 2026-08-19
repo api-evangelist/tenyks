@@ -1,0 +1,184 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tenyks Auth Data Upload API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Upload",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a Dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{base_url}.tenyks.ai/api/workspaces/tenyks/datasets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint creates a dataset."
+        },
+        {
+          "info": {
+            "name": "Upload Dataset Annotations",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{base_url}.tenyks.ai/api/workspaces/tenyks/datasets/:dataset_key/images/annotations",
+            "params": [
+              {
+                "name": "dataset_key",
+                "value": "face_detection",
+                "type": "path",
+                "description": "The unique key assigned to your dataset when it was created."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint uploads the annotations of a dataset."
+        },
+        {
+          "info": {
+            "name": "Ingest Dataset Annotations",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{base_url}.tenyks.ai/api/workspaces/tenyks/datasets/:dataset_key/ingest",
+            "params": [
+              {
+                "name": "dataset_key",
+                "value": "face_detection",
+                "type": "path",
+                "description": "The unique key assigned to your dataset when it was created."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint starts the process of data ingestion for annotations."
+        },
+        {
+          "info": {
+            "name": "Create a Model",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{base_url}.tenyks.ai/api/workspaces/tenyks/datasets/:dataset_key/model_inferences",
+            "params": [
+              {
+                "name": "dataset_key",
+                "value": "face_detection",
+                "type": "path",
+                "description": "The unique key assigned to your dataset when it was created."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint creates a model for a given dataset."
+        },
+        {
+          "info": {
+            "name": "Upload Model Predictions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{base_url}.tenyks.ai/api/workspaces/tenyks/datasets/:dataset_key/model_inferences/:model_key/predictions",
+            "params": [
+              {
+                "name": "dataset_key",
+                "value": "face_detection",
+                "type": "path",
+                "description": "The unique key assigned to your dataset when it was created."
+              },
+              {
+                "name": "model_key",
+                "value": "yolo_v8",
+                "type": "path",
+                "description": "The unique key assigned to your model when it was created."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint uploads the predictions of a model."
+        },
+        {
+          "info": {
+            "name": "Ingest Model Predictions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{base_url}.tenyks.ai/api/workspaces/tenyks/datasets/:dataset_key/model_inferences/:model_key/ingest",
+            "params": [
+              {
+                "name": "dataset_key",
+                "value": "face_detection",
+                "type": "path",
+                "description": "The unique key assigned to your dataset when it was created."
+              },
+              {
+                "name": "model_key",
+                "value": "yolo_v8",
+                "type": "path",
+                "description": "The unique key assigned to your model when it was created."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint starts the process of data ingestion for predictions."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
