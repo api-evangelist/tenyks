@@ -40,6 +40,17 @@ created: '2026-07-17'
 modified: '2026-07-21'
 tags:
 - Company
+- Computer-Vision
+- Machine-Learning
+- MLOps
+- Data Quality
+- Model Validation
+- Visual Intelligence
+- Video Analytics
+- Artificial Intelligence
+- Developer Tools
+tags_raw:
+- Company
 - Computer Vision
 - Machine Learning
 - MLOps
@@ -56,6 +67,8 @@ apis:
   humanURL: https://docs.tenyks.ai/reference/introduction
   baseURL: https://dashboard.tenyks.ai
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
