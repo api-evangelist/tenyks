@@ -15,6 +15,18 @@ description: >-
   a Bearer token, then create datasets and models, and upload and ingest
   annotations and predictions directly from AWS S3, GCS or Azure. A Python SDK
   and CLI wrap the same surface.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
