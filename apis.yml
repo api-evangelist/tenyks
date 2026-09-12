@@ -125,6 +125,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Website
+  url: https://www.tenyks.ai/
 - type: DomainSecurity
   url: security/tenyks-domain-security.yml
 - type: AgenticAccess
