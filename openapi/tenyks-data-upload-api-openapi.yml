@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Tenyks Auth Data Upload API
+  title: Tenyks Data Upload API
   version: 1.0.1
   description: The Tenyks API is the programmatic backbone of the Tenyks visual-intelligence / MLOps platform for computer-vision teams. It lets you authenticate with an API key + secret to obtain a short-lived Bearer access token, then create datasets and models, upload annotations and predictions from cloud storage (AWS S3, GCS, Azure), and trigger ingestion. Currently an alpha API available to Premium (Dashboard) users; a Sandbox host is available for the freemium tier.
   x-alpha: true
@@ -202,23 +202,6 @@ paths:
             application/json: {}
 components:
   schemas:
-    DatasetAnnotationsPayload:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - aws_s3
-          default: aws_s3
-        s3_uri:
-          type: string
-          example: s3://tenyks-datasets-bucket/kitti/annotations.json
-        credentials:
-          $ref: '#/components/schemas/AwsCredentials'
-      required:
-      - type
-      - s3_uri
-      - credentials
     ModelPayload:
       type: object
       properties:
@@ -243,23 +226,6 @@ components:
       - key
       - iou_threshold
       - confidence_threshold
-    AwsS3ImagesLocation:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - aws_s3
-          default: aws_s3
-        s3_uri:
-          type: string
-          example: s3://tenyks-datasets-bucket/kitti/images/
-        credentials:
-          $ref: '#/components/schemas/AwsCredentials'
-      required:
-      - type
-      - s3_uri
-      - credentials
     DatasetPayload:
       type: object
       properties:
@@ -311,6 +277,40 @@ components:
         s3_uri:
           type: string
           example: s3://tenyks-datasets-bucket/kitti/predictions.json
+        credentials:
+          $ref: '#/components/schemas/AwsCredentials'
+      required:
+      - type
+      - s3_uri
+      - credentials
+    DatasetAnnotationsPayload:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - aws_s3
+          default: aws_s3
+        s3_uri:
+          type: string
+          example: s3://tenyks-datasets-bucket/kitti/annotations.json
+        credentials:
+          $ref: '#/components/schemas/AwsCredentials'
+      required:
+      - type
+      - s3_uri
+      - credentials
+    AwsS3ImagesLocation:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - aws_s3
+          default: aws_s3
+        s3_uri:
+          type: string
+          example: s3://tenyks-datasets-bucket/kitti/images/
         credentials:
           $ref: '#/components/schemas/AwsCredentials'
       required:

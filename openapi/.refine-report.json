@@ -1,9 +1,7 @@
 {
   "provider": "tenyks",
   "sources": [
-    "tenyks-auth-api-openapi.yml",
-    "tenyks-data-upload-api-openapi.yml",
-    "tenyks-datasets-api-openapi.yml"
+    "_original/tenyks-openapi.json"
   ],
   "outputs": [
     "tenyks-auth-api-openapi.yml",
@@ -13,6 +11,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "tenyks-openapi.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "tenyks-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tenyks-data-upload-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tenyks-datasets-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

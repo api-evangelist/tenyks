@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Tenyks Auth API
   version: 1.0.1
@@ -46,6 +46,18 @@ paths:
             application/json: {}
 components:
   schemas:
+    ApiKeyPayload:
+      type: object
+      properties:
+        api_key:
+          type: string
+          description: Your Tenyks API key.
+        api_secret:
+          type: string
+          description: Your Tenyks API secret.
+      required:
+      - api_key
+      - api_secret
     AccessTokenResponse:
       type: object
       properties:
@@ -62,18 +74,6 @@ components:
         token_type:
           type: string
           example: Bearer
-    ApiKeyPayload:
-      type: object
-      properties:
-        api_key:
-          type: string
-          description: Your Tenyks API key.
-        api_secret:
-          type: string
-          description: Your Tenyks API secret.
-      required:
-      - api_key
-      - api_secret
   securitySchemes:
     bearerAuth:
       type: http
