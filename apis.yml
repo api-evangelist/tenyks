@@ -54,8 +54,8 @@ created: '2026-07-17'
 modified: '2026-07-21'
 tags:
 - Company
-- Computer-Vision
-- Machine-Learning
+- Computer Vision
+- Machine Learning
 - MLOps
 - Data Quality
 - Model Validation
@@ -74,6 +74,8 @@ tags_raw:
 - Video Analytics
 - Artificial Intelligence
 - Developer Tools
+- Computer-Vision
+- Machine-Learning
 apis:
 - aid: tenyks:tenyks-auth-api
   name: Tenyks Auth API
