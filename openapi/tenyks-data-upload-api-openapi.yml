@@ -202,23 +202,6 @@ paths:
             application/json: {}
 components:
   schemas:
-    AwsCredentials:
-      type: object
-      properties:
-        aws_access_key_id:
-          type: string
-        aws_secret_access_key:
-          type: string
-        region_name:
-          type: string
-          example: eu-central-1
-      required:
-      - aws_access_key_id
-      - aws_secret_access_key
-      - region_name
-    DatasetIngestPayload:
-      type: object
-      properties: {}
     AwsS3ImagesLocation:
       type: object
       properties:
@@ -230,6 +213,23 @@ components:
         s3_uri:
           type: string
           example: s3://tenyks-datasets-bucket/kitti/images/
+        credentials:
+          $ref: '#/components/schemas/AwsCredentials'
+      required:
+      - type
+      - s3_uri
+      - credentials
+    DatasetAnnotationsPayload:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - aws_s3
+          default: aws_s3
+        s3_uri:
+          type: string
+          example: s3://tenyks-datasets-bucket/kitti/annotations.json
         credentials:
           $ref: '#/components/schemas/AwsCredentials'
       required:
@@ -259,23 +259,6 @@ components:
       - display_name
       - task_type
       - images_location
-    ModelPredictionsPayload:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - aws_s3
-          default: aws_s3
-        s3_uri:
-          type: string
-          example: s3://tenyks-datasets-bucket/kitti/predictions.json
-        credentials:
-          $ref: '#/components/schemas/AwsCredentials'
-      required:
-      - type
-      - s3_uri
-      - credentials
     ModelPayload:
       type: object
       properties:
@@ -300,7 +283,7 @@ components:
       - key
       - iou_threshold
       - confidence_threshold
-    DatasetAnnotationsPayload:
+    ModelPredictionsPayload:
       type: object
       properties:
         type:
@@ -310,13 +293,30 @@ components:
           default: aws_s3
         s3_uri:
           type: string
-          example: s3://tenyks-datasets-bucket/kitti/annotations.json
+          example: s3://tenyks-datasets-bucket/kitti/predictions.json
         credentials:
           $ref: '#/components/schemas/AwsCredentials'
       required:
       - type
       - s3_uri
       - credentials
+    DatasetIngestPayload:
+      type: object
+      properties: {}
+    AwsCredentials:
+      type: object
+      properties:
+        aws_access_key_id:
+          type: string
+        aws_secret_access_key:
+          type: string
+        region_name:
+          type: string
+          example: eu-central-1
+      required:
+      - aws_access_key_id
+      - aws_secret_access_key
+      - region_name
   securitySchemes:
     bearerAuth:
       type: http
