@@ -1,0 +1,109 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://www.tenyks.ai/pricing
+sources:
+- https://www.tenyks.ai/pricing
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: tiered-subscription
+delivery:
+  delivery: managed+licensed
+  method: page
+  read: '2026-10-07'
+  evidence: On-prem install (dockerised)
+  managed_tier: Starter
+published: true
+note: Page mixes per-camera and per-hour-of-footage plans (all 'Get a Quote') with a legacy platform plan
+  table showing monthly/annual GBP prices for Starter and Pro; Enterprise is quote-only. On-prem dockerised
+  install is listed in paid tiers.
+plan_count: 5
+currency: GBP
+plans:
+- name: Starter (monthly)
+  price_text: £259/month
+  price: 259
+  currency: GBP
+  period: month
+  unit: 1-4 users
+  included_quota: 300K images storage
+- name: Pro (monthly)
+  price_text: £1,369/month
+  price: 1369
+  currency: GBP
+  period: month
+  unit: 5-12 users
+  included_quota: 300K - 1M images
+- name: Starter (annual)
+  price_text: 30% off £189/month
+  price: 189
+  currency: GBP
+  period: month
+  unit: 1-4 users
+  included_quota: 300K images storage
+- name: Pro (annual)
+  price_text: 30% off £999/month
+  price: 999
+  currency: GBP
+  period: month
+  unit: 5-12 users
+  included_quota: 300K - 1M images
+- name: Enterprise
+  price_text: Get a Quote
+  period: none
+  included_quota: Unlimited users, +1M images, on-premise installation
+rate_limit_statements:
+- Mininum of 250 hrs
+- Minimum of 1,000 hrs
+- 1 activity / camera
+- Up to 5 activities / camera
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - seat
+  units:
+  - seat
+  plans:
+  - name: Starter (monthly)
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Pro (monthly)
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Starter (annual)
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Pro (annual)
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Enterprise
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
