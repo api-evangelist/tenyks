@@ -202,46 +202,23 @@ paths:
             application/json: {}
 components:
   schemas:
-    ModelPredictionsPayload:
+    DatasetIngestPayload:
+      type: object
+      properties: {}
+    AwsCredentials:
       type: object
       properties:
-        type:
+        aws_access_key_id:
           type: string
-          enum:
-          - aws_s3
-          default: aws_s3
-        s3_uri:
+        aws_secret_access_key:
           type: string
-          example: s3://tenyks-datasets-bucket/kitti/predictions.json
-        credentials:
-          $ref: '#/components/schemas/AwsCredentials'
+        region_name:
+          type: string
+          example: eu-central-1
       required:
-      - type
-      - s3_uri
-      - credentials
-    DatasetPayload:
-      type: object
-      properties:
-        key:
-          type: string
-          description: Unique key assigned to your dataset
-          example: face_detection
-        display_name:
-          type: string
-          description: Label assigned to your dataset_key
-          example: face_detection
-        task_type:
-          type: string
-          enum:
-          - object_detection
-          default: object_detection
-        images_location:
-          $ref: '#/components/schemas/AwsS3ImagesLocation'
-      required:
-      - key
-      - display_name
-      - task_type
-      - images_location
+      - aws_access_key_id
+      - aws_secret_access_key
+      - region_name
     ModelPayload:
       type: object
       properties:
@@ -283,23 +260,46 @@ components:
       - type
       - s3_uri
       - credentials
-    AwsCredentials:
+    DatasetPayload:
       type: object
       properties:
-        aws_access_key_id:
+        key:
           type: string
-        aws_secret_access_key:
+          description: Unique key assigned to your dataset
+          example: face_detection
+        display_name:
           type: string
-        region_name:
+          description: Label assigned to your dataset_key
+          example: face_detection
+        task_type:
           type: string
-          example: eu-central-1
+          enum:
+          - object_detection
+          default: object_detection
+        images_location:
+          $ref: '#/components/schemas/AwsS3ImagesLocation'
       required:
-      - aws_access_key_id
-      - aws_secret_access_key
-      - region_name
-    DatasetIngestPayload:
+      - key
+      - display_name
+      - task_type
+      - images_location
+    ModelPredictionsPayload:
       type: object
-      properties: {}
+      properties:
+        type:
+          type: string
+          enum:
+          - aws_s3
+          default: aws_s3
+        s3_uri:
+          type: string
+          example: s3://tenyks-datasets-bucket/kitti/predictions.json
+        credentials:
+          $ref: '#/components/schemas/AwsCredentials'
+      required:
+      - type
+      - s3_uri
+      - credentials
     DatasetAnnotationsPayload:
       type: object
       properties:
